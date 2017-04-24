@@ -1,4 +1,4 @@
-package atm;
+package bills.cards;
 
 /**
  * Created by n on 03.04.17.
@@ -18,7 +18,7 @@ public class Card {
         return balance;
     }
 
-     void spisatMoney(int money) {
+     public void spisatMoney(int money) {
          if(balance > money){
              int tmp = balance - money;
 

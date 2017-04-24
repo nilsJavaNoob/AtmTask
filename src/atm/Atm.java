@@ -1,11 +1,13 @@
 package atm;
 
+import bills.cards.Card;
+
 /**
  * Created by n on 02.04.17.
  */
 public class Atm {
     private int balance;
-    private Card  currentCard=null;
+    private Card currentCard=null;
     public void insertCard(Card card){
         if(currentCard == null){
             currentCard =card;
@@ -21,12 +23,15 @@ public class Atm {
 
     public void getMoney(int money){
         if(currentCard.getBalance() > money) {
-
-           currentCard.spisatMoney(); balance = balance-money;
+           currentCard.spisatMoney(money); balance = balance-money;
             System.out.println("Вы получили деньги");
         }
+        else System.out.println("Запрашиваемая сумма - " + money + " отсутствует");
     }
-    public int getBalance(){
-
+    private int getBalance(){
+        return currentCard.getBalance();
+    }
+    public void showBalans(){
+        System.out.println("Ваш баланс - "+ currentCard.getBalance() );
     }
 }
